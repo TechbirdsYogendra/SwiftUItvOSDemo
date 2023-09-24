@@ -37,6 +37,12 @@ struct MovieDetailsView: View {
                 Spacer()
                 Text("Awards:       \(movieDetils.awards)").font(.body)
                 Spacer()
+            } else {
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                } else {
+                    Text("Movies are Loading.....")
+                }
             }
         }
         .onAppear{

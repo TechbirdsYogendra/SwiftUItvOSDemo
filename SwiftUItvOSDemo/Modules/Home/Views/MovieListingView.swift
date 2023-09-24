@@ -13,15 +13,23 @@ struct MovieListingView: View {
     
     var body: some View {
         NavigationStack {
-            List(viewModel.movies, id: \.title) { movie in
-                NavigationLink(value: movie) {
-                    MovieView(movie: movie)
-                        .cornerRadius(20)
-                        .focusable()
+            if viewModel.movies.isEmpty {
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                } else {
+                    Text("Movie Details Loading.....")
                 }
-                .navigationDestination(for: Movie.self, destination: { movie in
-                    MovieDetailsView(movie: movie)
-                })
+            } else {
+                List(viewModel.movies, id: \.title) { movie in
+                    NavigationLink(value: movie) {
+                        MovieView(movie: movie)
+                            .cornerRadius(20)
+                            .focusable()
+                    }
+                    .navigationDestination(for: Movie.self, destination: { movie in
+                        MovieDetailsView(movie: movie)
+                    })
+                }
             }
         }
         .onAppear {
