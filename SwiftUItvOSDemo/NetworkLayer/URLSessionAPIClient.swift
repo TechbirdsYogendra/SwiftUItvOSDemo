@@ -13,7 +13,9 @@ class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
         let url = endpoint.baseURL.appendingPathComponent(endpoint.path)
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-        
+        if let queryParams = endpoint.queryParameters {
+            request.url?.append(queryItems: queryParams)
+        }
         endpoint.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         // set up any other request parameters here
         

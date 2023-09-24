@@ -11,15 +11,8 @@ enum MovieEndpoint: APIEndpoint {
     
     case getMovies(title: String)
     case getMovie(id: String)
-   // https://www.omdbapi.com/?apikey=96e69064&s=batman
     var baseURL: URL {
-        switch self {
-        case .getMovies(let title):
-            return URL(string: "https://www.omdbapi.com/?apikey=96e69064&s=\(title)")!
-        case .getMovie(let id):
-            return URL(string: "https://www.omdbapi.com/?apikey=96e69064&i=\(id)")!
-        }
-        
+        return URL(string: "https://www.omdbapi.com/?apikey=96e69064")!
     }
     
     var path: String {
@@ -28,6 +21,15 @@ enum MovieEndpoint: APIEndpoint {
             return ""
         case .getMovie:
             return ""
+        }
+    }
+    
+    var queryParameters: [URLQueryItem]? {
+        switch self {
+        case .getMovies(let title):
+            return [URLQueryItem(name: "s", value: title)]
+        case .getMovie(let id):
+            return [URLQueryItem(name: "i", value: id)]
         }
     }
     

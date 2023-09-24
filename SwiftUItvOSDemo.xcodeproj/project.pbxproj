@@ -73,6 +73,7 @@
 		05DA54702AC012E10031DD8F /* SwiftUItvOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				05DA549D2AC0A2EB0031DD8F /* Ultilites */,
 				05DA54822AC013780031DD8F /* Modules */,
 				05DA547F2AC013000031DD8F /* NetworkLayer */,
 				05DA54712AC012E10031DD8F /* SwiftUItvOSDemoApp.swift */,
@@ -112,10 +113,10 @@
 		05DA54832AC013880031DD8F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				05DA54922AC0223B0031DD8F /* ViewModels */,
-				05DA548D2AC01F760031DD8F /* Services */,
 				05DA54852AC0139E0031DD8F /* Models */,
+				05DA54922AC0223B0031DD8F /* ViewModels */,
 				05DA54842AC013990031DD8F /* Views */,
+				05DA548D2AC01F760031DD8F /* Services */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -154,6 +155,13 @@
 				05DA54932AC0227E0031DD8F /* MoviesViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		05DA549D2AC0A2EB0031DD8F /* Ultilites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ultilites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
