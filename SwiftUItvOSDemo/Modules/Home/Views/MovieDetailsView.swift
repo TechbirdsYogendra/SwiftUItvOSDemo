@@ -41,7 +41,7 @@ struct MovieDetailsView: View {
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                 } else {
-                    Text("Movies are Loading.....")
+                    Text(localisedString(key:LocalizableStringConstants.movieDetailsLoading))
                 }
             }
         }

@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SwiftUItvOSDemo
+
+  Created by Yogendra Singh on 24/09/23.
+  
+*/
+
+"moviesLoading" = "Filme werden geladen.....";
+"movieDetailsLoading" = "Filmdetails werden geladen......";

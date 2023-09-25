@@ -17,7 +17,7 @@ struct MovieListingView: View {
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                 } else {
-                    Text("Movie Details Loading.....")
+                    Text(localisedString(key:LocalizableStringConstants.moviesLoading))
                 }
             } else {
                 List(viewModel.movies, id: \.title) { movie in
