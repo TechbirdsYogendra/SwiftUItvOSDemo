@@ -21,6 +21,10 @@ class MoviesViewModel: ObservableObject {
     }
     
     func fetchMovies(title: String) {
+        guard Reachability.isConnectedToNetwork() else {
+            errorMessage = localisedString(key: LocalizableStringConstants.noInternet)
+            return
+        }
         movieService.getMovies(title: title)
             .receive(on: RunLoop.main)
             .sink { [weak self] error in
@@ -38,6 +42,10 @@ class MoviesViewModel: ObservableObject {
     }
     
     func fetchMovie(id: String) {
+        guard Reachability.isConnectedToNetwork() else {
+            errorMessage = localisedString(key: LocalizableStringConstants.noInternet)
+            return
+        }
         movieService.getMovie(id: id)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in

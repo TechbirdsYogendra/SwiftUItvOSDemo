@@ -10,6 +10,7 @@ import Foundation
 struct LocalizableStringConstants {
     static let moviesLoading = "moviesLoading"
     static let movieDetailsLoading = "movieDetailsLoading"
+    static let noInternet = "noInternet"
 }
 
 func localisedString(key: String) -> String {
