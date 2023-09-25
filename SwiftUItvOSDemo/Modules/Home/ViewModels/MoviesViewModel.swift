@@ -28,7 +28,7 @@ class MoviesViewModel: ObservableObject {
                 switch error {
                 case .finished: break
                 case .failure(let error):
-                    weakSelf.errorMessage = error.localizedDescription
+                    weakSelf.handleError(error: error)
                 }
             } receiveValue: {[weak self] movies in
                 guard let weakSelf = self else { return }
@@ -40,17 +40,36 @@ class MoviesViewModel: ObservableObject {
     func fetchMovie(id: String) {
         movieService.getMovie(id: id)
             .receive(on: RunLoop.main)
-            .sink { [weak self] error in
+            .sink { [weak self] completion in
                 guard let weakSelf = self else { return }
-                switch error {
+                switch completion {
                 case .finished: break
                 case .failure(let error):
-                    weakSelf.errorMessage = error.localizedDescription
+                    weakSelf.handleError(error: error)
                 }
             } receiveValue: {[weak self] movie in
                 guard let weakSelf = self else { return }
                 weakSelf.movieDetails = movie
             }
             .store(in: &cancellables)
+    }
+    
+    private func handleError(error: Error) {
+        if let decodingError = error as? DecodingError {
+            switch decodingError {
+            case .typeMismatch(_, let context):
+                errorMessage = "Key \"\(context.codingPath.first?.stringValue ?? "")\" " +  context.debugDescription
+            case .valueNotFound(_, let context):
+                errorMessage = context.debugDescription
+            case .keyNotFound(_, let context):
+                errorMessage = context.debugDescription
+            case .dataCorrupted(let context):
+                errorMessage = context.debugDescription
+            @unknown default:
+                errorMessage = "Some Decoding Error"
+            }
+        } else {
+            errorMessage = error.localizedDescription
+        }
     }
 }

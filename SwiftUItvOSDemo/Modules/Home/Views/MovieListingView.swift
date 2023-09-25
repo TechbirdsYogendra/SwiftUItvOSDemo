@@ -20,15 +20,18 @@ struct MovieListingView: View {
                     Text(localisedString(key:LocalizableStringConstants.moviesLoading))
                 }
             } else {
-                List(viewModel.movies, id: \.title) { movie in
-                    NavigationLink(value: movie) {
-                        MovieView(movie: movie)
-                            .cornerRadius(20)
-                            .focusable()
+                VStack {
+                    Text("MOVIES").font(.title)
+                    List(viewModel.movies, id: \.title) { movie in
+                        NavigationLink(value: movie) {
+                            MovieView(movie: movie)
+                                .cornerRadius(20)
+                                .focusable()
+                        }
+                        .navigationDestination(for: Movie.self, destination: { movie in
+                            MovieDetailsView(movie: movie)
+                        })
                     }
-                    .navigationDestination(for: Movie.self, destination: { movie in
-                        MovieDetailsView(movie: movie)
-                    })
                 }
             }
         }

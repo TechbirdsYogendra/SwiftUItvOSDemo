@@ -25,6 +25,8 @@
 		05DA549F2AC0A9C30031DD8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA549E2AC0A9C30031DD8F /* Constants.swift */; };
 		05DA54A32AC0ABD90031DD8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DA54A52AC0ABD90031DD8F /* Localizable.strings */; };
 		05DA54A92AC13CF40031DD8F /* LocalizableStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54A82AC13CF40031DD8F /* LocalizableStringConstants.swift */; };
+		05DA54AC2AC19F700031DD8F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54AB2AC19F700031DD8F /* String+Extension.swift */; };
+		05DA54AE2AC19F830031DD8F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54AD2AC19F830031DD8F /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		05DA54A62AC13B800031DD8F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05DA54A72AC13B900031DD8F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05DA54A82AC13CF40031DD8F /* LocalizableStringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStringConstants.swift; sourceTree = "<group>"; };
+		05DA54AB2AC19F700031DD8F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		05DA54AD2AC19F830031DD8F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 		05DA549D2AC0A2EB0031DD8F /* Ultilites */ = {
 			isa = PBXGroup;
 			children = (
+				05DA54AA2AC19F560031DD8F /* Extensions */,
 				05DA549E2AC0A9C30031DD8F /* Constants.swift */,
 			);
 			path = Ultilites;
@@ -181,6 +186,15 @@
 				05DA54A82AC13CF40031DD8F /* LocalizableStringConstants.swift */,
 			);
 			path = Localizations;
+			sourceTree = "<group>";
+		};
+		05DA54AA2AC19F560031DD8F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				05DA54AB2AC19F700031DD8F /* String+Extension.swift */,
+				05DA54AD2AC19F830031DD8F /* Date+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DA54AC2AC19F700031DD8F /* String+Extension.swift in Sources */,
 				05DA549C2AC0A15F0031DD8F /* MovieListingView.swift in Sources */,
 				05DA54892AC014440031DD8F /* URLSessionAPIClient.swift in Sources */,
 				05DA54742AC012E10031DD8F /* ContentView.swift in Sources */,
@@ -264,6 +279,7 @@
 				05DA54722AC012E10031DD8F /* SwiftUItvOSDemoApp.swift in Sources */,
 				05DA54942AC0227E0031DD8F /* MoviesViewModel.swift in Sources */,
 				05DA54962AC077D30031DD8F /* MovieView.swift in Sources */,
+				05DA54AE2AC19F830031DD8F /* Date+Extension.swift in Sources */,
 				05DA54812AC013380031DD8F /* APIEndPoint.swift in Sources */,
 				05DA54872AC013DE0031DD8F /* APIClient.swift in Sources */,
 				05DA548C2AC014F00031DD8F /* MovieEndPoint.swift in Sources */,
@@ -347,7 +363,7 @@
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 16.4;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
@@ -401,7 +417,7 @@
 				SDKROOT = appletvos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 16.4;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -428,6 +444,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
@@ -453,6 +470,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;
 		};

@@ -15,27 +15,18 @@ struct MovieDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let movieDetils = viewModel.movieDetails {
-                HStack {
+                Text(movieDetils.title).font(.title3).foregroundColor(.yellow)
+                HStack(alignment: .top) {
                     AsyncImage(url: URL(string: movieDetils.poster))
                         .cornerRadius(10)
-                    VStack(alignment: .leading) {
-                        Text(movieDetils.title).font(.title3)
-                        Text("Released:     \(movieDetils.released)").font(.body)
-                        Text("Genre:        \(movieDetils.genre)").font(.body)
-                        Text("Director:     \(movieDetils.director)").font(.body)
-                        Text("Writer:        \(movieDetils.writer)").font(.body)
-                        Text("Actors:     \(movieDetils.actors)").font(.body)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("\(movieDetils.runtime)  • \(movieDetils.genre)  • \(movieDetils.released)").font(.body)
+                        Text("Country:      \(movieDetils.country)").font(.body)
+                        Text("Director:     \(movieDetils.director)\nWriter:        \(movieDetils.writer)\nActors:     \(movieDetils.actors)").font(.body)
                     }
-                    Spacer()
                 }
                 Spacer()
-                Text(movieDetils.plot).font(.body)
-                Spacer()
-                Text("Languages:        \(movieDetils.language)").font(.body)
-                Spacer()
-                Text("Country:      \(movieDetils.country)").font(.body)
-                Spacer()
-                Text("Awards:       \(movieDetils.awards)").font(.body)
+                MovieDetailsBottomView(movieDetils: movieDetils)
                 Spacer()
             } else {
                 if let errorMessage = viewModel.errorMessage {
@@ -47,6 +38,25 @@ struct MovieDetailsView: View {
         }
         .onAppear{
             viewModel.fetchMovie(id: movie.imdbID)
+        }
+    }
+}
+
+struct MovieDetailsBottomView: View {
+    let movieDetils: MovieDetails
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(movieDetils.plot).font(.body)
+            Text("Languages:        \(movieDetils.language)").font(.body)
+            Text("Awards:       \(movieDetils.awards)").font(.body)
+            Text("Box Office:     \(movieDetils.boxOffice)")
+            Text("IMDb:     \(movieDetils.imdbRating)")
+            if let rating = movieDetils.ratings.first {
+                Text("\(rating.source):     \(rating.value)")
+            }
+            if let rating = movieDetils.ratings.last {
+                Text("\(rating.source):     \(rating.value)")
+            }
         }
     }
 }
