@@ -27,6 +27,7 @@
 		05DA54A92AC13CF40031DD8F /* LocalizableStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54A82AC13CF40031DD8F /* LocalizableStringConstants.swift */; };
 		05DA54AC2AC19F700031DD8F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54AB2AC19F700031DD8F /* String+Extension.swift */; };
 		05DA54AE2AC19F830031DD8F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54AD2AC19F830031DD8F /* Date+Extension.swift */; };
+		05DA54B02AC1BD100031DD8F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA54AF2AC1BD100031DD8F /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		05DA54A82AC13CF40031DD8F /* LocalizableStringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStringConstants.swift; sourceTree = "<group>"; };
 		05DA54AB2AC19F700031DD8F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		05DA54AD2AC19F830031DD8F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		05DA54AF2AC1BD100031DD8F /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		05DA547F2AC013000031DD8F /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				05DA54AF2AC1BD100031DD8F /* Reachability.swift */,
 				05DA54802AC013380031DD8F /* APIEndPoint.swift */,
 				05DA54862AC013DE0031DD8F /* APIClient.swift */,
 				05DA54882AC014440031DD8F /* URLSessionAPIClient.swift */,
@@ -284,6 +287,7 @@
 				05DA54872AC013DE0031DD8F /* APIClient.swift in Sources */,
 				05DA548C2AC014F00031DD8F /* MovieEndPoint.swift in Sources */,
 				05DA54A92AC13CF40031DD8F /* LocalizableStringConstants.swift in Sources */,
+				05DA54B02AC1BD100031DD8F /* Reachability.swift in Sources */,
 				05DA549F2AC0A9C30031DD8F /* Constants.swift in Sources */,
 				05DA548F2AC01F950031DD8F /* MoviesService.swift in Sources */,
 				05DA549A2AC08F640031DD8F /* MovieDetails.swift in Sources */,

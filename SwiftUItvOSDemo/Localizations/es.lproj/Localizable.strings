@@ -8,3 +8,4 @@
 
 "moviesLoading" = "Las películas se están cargando.....";
 "movieDetailsLoading" = "Detalles de la película Cargando.....";
+"noInternet" = "No Internet found.";
