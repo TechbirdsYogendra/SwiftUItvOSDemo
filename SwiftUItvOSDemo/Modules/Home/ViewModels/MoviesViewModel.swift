@@ -12,16 +12,22 @@ class MoviesViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     let movieService: MoviesServiceProtocol
+    var networkStatus = Network.reachability.status
     @Published var movies: [Movie] = []
     @Published var movieDetails: MovieDetails?
     @Published var errorMessage: String?
     
     init(movieService: MoviesServiceProtocol) {
         self.movieService = movieService
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(statusManager),
+                         name: .flagsChanged,
+                         object: nil)
     }
     
     func fetchMovies(title: String) {
-        guard Reachability.isConnectedToNetwork() else {
+        guard Network.isConnectedToNetwork() else {
             errorMessage = localisedString(key: LocalizableStringConstants.noInternet)
             return
         }
@@ -42,7 +48,7 @@ class MoviesViewModel: ObservableObject {
     }
     
     func fetchMovie(id: String) {
-        guard Reachability.isConnectedToNetwork() else {
+        guard Network.isConnectedToNetwork() else {
             errorMessage = localisedString(key: LocalizableStringConstants.noInternet)
             return
         }
@@ -78,6 +84,13 @@ class MoviesViewModel: ObservableObject {
             }
         } else {
             errorMessage = error.localizedDescription
+        }
+    }
+    
+    @objc func statusManager(_ notification: Notification) {
+        guard let reachability  = notification.object as? Reachability else { return }
+        if reachability.status == .unreachable {
+            print("No Network")
         }
     }
 }
